@@ -1,4 +1,6 @@
+import Vievs.ParserApp
+import tornadofx.launch
 
-    fun main(){
-        println("1")
+fun main(){
+        launch<ParserApp>()
     }
