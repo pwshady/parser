@@ -1,11 +1,24 @@
 package Vievs
 
-import javafx.scene.Parent
-import tornadofx.Fragment
-import tornadofx.vbox
+import Models.ParserData
+import javafx.geometry.Side
+import tornadofx.*
 
-class ParserViev() : Fragment() {
-    override val root: Parent = vbox {
+class ParserViev : View() {
+    override val root = tabpane(){
+        tab("s1") {
+            drawer (side = Side.LEFT, multiselect = false) {
+                item("Viev", expanded = true) {
+                }
+
+                item("HTML") {
+                    this += HTMLTableView(ParserData.page.HTMLList[0])
+                }
+                item("JSON") {
+                    textfield {  }
+                }
+            }
+        }
 
     }
 }
