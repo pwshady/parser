@@ -13,7 +13,7 @@ class HTMLTableView(element: Element) : Fragment() {
         }
         readonlyColumn("Tag", HTMLTeg::name)
         rowExpander(expandOnDoubleClick = true){
-            println("ku")
+            println("ky")
         }
         println(tegs[0].name)
     }
