@@ -1,6 +1,8 @@
+import Models.ElementJSON
 import Models.ParserData
 import Vievs.ParserApp
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import tornadofx.launch
 import java.io.File
 
@@ -13,7 +15,8 @@ fun main(){
     //    println(el.children().size)
     //}
     ParserData.page.HTMLList.add(doc)
-
+    var t : ElementJSON = ParserData.page.HTMLList[0]
+    println(t)
     launch<ParserApp>()
     //WVP.main()
 }
