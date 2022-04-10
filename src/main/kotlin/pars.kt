@@ -15,8 +15,7 @@ fun main(){
     //    println(el.children().size)
     //}
     ParserData.page.HTMLList.add(doc)
-    var t : ElementJSON = ParserData.page.HTMLList[0]
-    println(t)
+    println()
     launch<ParserApp>()
     //WVP.main()
 }
