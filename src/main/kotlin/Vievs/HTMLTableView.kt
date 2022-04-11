@@ -22,6 +22,5 @@ class HTMLTableView(element: Element) : Fragment() {
                 this += TegEditorView(it.tegs)
             }
         }
-        println(tegs[0].name)
     }
 }

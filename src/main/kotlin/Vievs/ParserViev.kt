@@ -15,7 +15,7 @@ class ParserViev : View() {
                     this += HTMLTableView(ParserData.page.HTMLList[0])
                 }
                 item("JSON") {
-                    textfield {  }
+                    this += JSONTextViev(ParserData.page.JSONList[0])
                 }
             }
         }
