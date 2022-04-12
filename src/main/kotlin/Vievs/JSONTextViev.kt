@@ -1,22 +1,46 @@
 package Vievs
 
 import Models.ElementJSON
-import tornadofx.Fragment
-import tornadofx.hbox
-import tornadofx.textarea
+import Models.ParserData
+import javafx.scene.control.TextArea
+import tornadofx.*
 
 class JSONTextViev(elementJSON: ElementJSON) : Fragment() {
-    var text : String = ""
-    override val root = hbox {
+    var fulText : String = ""
+    fun setText(elementJSON: ElementJSON){
         fun addTag(elementJSON: ElementJSON, preview : String){
-            text += "${preview}${elementJSON.tagName}\n"
-            if (elementJSON.children.size != 0){
+            if (elementJSON.children.size == 0){
+                fulText += "${preview}tag=${elementJSON.tagName}    json=${elementJSON.json}    value=${elementJSON.elementText}\n"
+            }else{
+                fulText += "${preview}tag=${elementJSON.tagName}    json=${elementJSON.json}\n"
                 for (i in 0 until elementJSON.children.size){
                     addTag(elementJSON.children[i],"    ${preview}")
                 }
             }
         }
         addTag(elementJSON,"")
-        textarea(text)
+    }
+
+    override val root = hbox {
+        setText(elementJSON)
+
+        var ta : TextArea
+        ta = textarea(fulText){
+            minWidth = 400.0
+        }
+        button("gg"){
+            action {
+                fulText = ""
+                setText(elementJSON)
+                ta.text = fulText
+            }
+        }
+        button("kk"){
+            action {
+                fulText = ""
+                setText(ParserData.page.JSONList[0])
+                ta.text = fulText
+            }
+        }
     }
 }

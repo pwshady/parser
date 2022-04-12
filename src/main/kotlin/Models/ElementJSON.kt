@@ -12,7 +12,7 @@ class ElementJSON(doc: Element) {
     init {
         tagName = doc.tagName()
         if (doc.children().size == 0){
-            elementText = doc.toString()
+            elementText = doc.toString().replace("\n","")
         } else{
             for(e in doc.children()){
                 children.add(ElementJSON(e))
