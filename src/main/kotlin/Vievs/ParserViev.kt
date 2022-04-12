@@ -2,7 +2,9 @@ package Vievs
 
 import Models.ParserData
 import javafx.geometry.Side
+import javafx.stage.FileChooser
 import tornadofx.*
+import java.io.File
 import java.sql.Driver
 
 class ParserViev : View() {
@@ -27,5 +29,20 @@ class ParserViev : View() {
             }
         }
 
+        button("td"){
+            setOnAction {
+                var dir = chooseDirectory("gg") {  }
+
+            }
+        }
+
+        button("tf"){
+            setOnAction {
+                val filter = arrayOf(FileChooser.ExtensionFilter("Text (*.txt","*.txt"))
+                var file : File = chooseFile("",filter).first()
+
+            }
+        }
     }
+
 }
